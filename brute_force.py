@@ -13,19 +13,20 @@ class Brute_Force(object):
     def load_puzzle(self, puzzle_string):
         self.puzzle = []
         self.known_indices = []
-        rows = [row for row in puzzle_string.split("\n") if row]
+        #rows = [row for row in puzzle_string.split("\n") if row]
         self.n = 9 #len(rows)
         self.b = 3 #int(math.sqrt(self.n))
-        for row_index, row in enumerate(rows):
-            for col_index, c in enumerate(row.split('|')):
-                if c.isdigit():
+        for row_index in range(9):
+            for col_index in range(9):
+                c = puzzle_string.iloc[row_index,col_index]
+                if c == '.':
+                    self.puzzle.append(0)
+                else:
                     self.puzzle.append(int(c))
-                    if int(c) != 0:
-                        self.known_indices.append((row_index * self.n) + col_index)
+                    self.known_indices.append((row_index * self.n) + col_index)
 
     def load_puzzle_from_file(self, path):
-        with open(path, 'r') as f:
-            self.load_puzzle(f.read())
+        self.load_puzzle(path)
 
     def to_string(self, pretty=True):
         return "".join(['\n' + str(c) if i % self.n == 0 else str(c) for i, c in enumerate(self.puzzle)])
