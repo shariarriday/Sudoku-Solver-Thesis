@@ -14,23 +14,23 @@ from init_board import init_board
 #file_name = input("Please enter the file location: ")
 grid = ""
 #enter input location
-main = open("Inputs\\main.txt")
-i = 1
+main = open("Inputs\\sudoku-3m.csv")
+i = 2
 c = 0
 for single in main:
     
     if str(i)!=sys.argv[1]:
         i+=1
         continue
-    
-    symtest = np.zeros((9,9))
 
     n = open("Inputs\\input.txt", "w")
+
+    single = single.split(",")[1]
+
     for ind in range(9):
         for j in range(9):
             if(single[ind*9+j] != '.'):
                 n.write(single[ind*9+j])
-                symtest[ind][j] = 1
                 c+=1
                 n.write('|')
             else:
@@ -52,16 +52,6 @@ for single in main:
     f.write(f"The Count is {c}\n")
     f.write(f"{t1}\n")
 
-    print(symtest)
-    print(np.rot90(symtest))
-
-    if np.array_equal(symtest, np.rot90(symtest)):
-        f.write(f"The Input is 90 Degree Symmetric.\n")
-
-    if np.array_equal(symtest, np.rot90(np.rot90(symtest))):
-        f.write(f"The Input is 180 Degree Symmetric.\n")
-
-    f.close()
     f = open('Output/log.txt'.format(i), 'w')
     f.write('Log Start\n')
     f.close()

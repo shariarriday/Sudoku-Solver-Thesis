@@ -1,6 +1,0 @@
-The Count is 17
-1612037250.9157033
-Hidden Singles has occured 33 times
-Single Candidate has occured 31 times
-The Difficulty level is Easy
-1612037251.6305475

@@ -1,7 +1,0 @@
-The Count is 17
-1612037246.1147869
-Single Candidate has occured 36 times
-Hidden Singles has occured 28 times
-Naked Pairs has occured 11 times
-The Difficulty level is Medium
-1612037247.2762573
